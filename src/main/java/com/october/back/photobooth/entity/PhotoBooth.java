@@ -1,4 +1,4 @@
-package com.october.back.photoBooth.entity;
+package com.october.back.photobooth.entity;
 
 import com.october.back.global.common.BaseEntity;
 import jakarta.persistence.Column;
