@@ -18,7 +18,10 @@ public class WebClientConfig {
     public WebClient kakaoClient(WebClient.Builder builder) {
         return builder
                 .baseUrl(kakaoApiBaseUrl) // Kakao API 기본 URL 설정
-                .defaultHeader("Authorization", "KakaoAK " + kakaoRestApiKey) // Kakao API 인증 헤더
+                .defaultHeaders(httpHeaders -> {
+                    httpHeaders.add("Content-Type", "application/json;charset=UTF-8"); // 기본 Content-Type
+                    httpHeaders.add("Authorization", "KakaoAK " + kakaoRestApiKey); // 인증 헤더
+                })
                 .build();
     }
 
