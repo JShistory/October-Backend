@@ -52,4 +52,18 @@ public class PhotoBooth extends BaseEntity {
         this.phone = phone;
         this.placeUrl = placeUrl;
     }
+
+    public PhotoBooth updateFields(String latitude, String longitude, BrandType brandName, String placeName,
+                                   String address, String roadAddress, String phone, String placeUrl) {
+        this.latitude = latitude != null ? latitude : this.latitude;
+        this.longitude = longitude != null ? longitude : this.longitude;
+        this.brandName = brandName != null ? brandName : this.brandName;
+        this.placeName = placeName != null ? placeName : this.placeName;
+        this.address = address != null ? address : this.address;
+        this.roadAddress = roadAddress != null ? roadAddress : this.roadAddress;
+        this.phone = phone != null ? phone : this.phone;
+        this.placeUrl = placeUrl != null ? placeUrl : this.placeUrl;
+        return this;
+    }
+
 }
