@@ -47,9 +47,6 @@ public class KakaoMapService {
             String y = region.getLatitude();
             int radius = 20000;
             int page = 1;
-            System.out.println("x = " + x);
-            System.out.println("y = " + y);
-            System.out.println("region = " + region.getProvince());
             searchAndSaveRecursive(keyword, x, y, radius, page); // 지역에 대해 검색
         }
     }
