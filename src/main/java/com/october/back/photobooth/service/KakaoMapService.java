@@ -66,12 +66,32 @@ public class KakaoMapService {
                                 .address(doc.getAddress_name())
                                 .phone(doc.getPhone())
                                 .placeUrl(doc.getPlace_url())
-                                .latitude(Double.parseDouble(doc.getX()))
-                                .longitude(Double.parseDouble(doc.getY()))
+                                .latitude(doc.getX())
+                                .longitude(doc.getY())
                                 .brandName(BrandType.fromKoreanName(keyword))
                                 .build();
-                        photoBoothRepository.save(photoBooth);
-                        logger.info("Saved PhotoBooth: {}", photoBooth);
+
+                        PhotoBooth existingPhotoBooth = photoBoothRepository.findByPlaceNameAndAddress(doc.getPlace_name(), doc.getAddress_name());
+
+                        if (existingPhotoBooth != null) {
+                            // 기존 객체 업데이트
+                            existingPhotoBooth.updateFields(
+                                    doc.getX(),
+                                    doc.getY(),
+                                    BrandType.fromKoreanName(keyword),
+                                    doc.getPlace_name(),
+                                    doc.getAddress_name(),
+                                    null,
+                                    doc.getPhone(),
+                                    doc.getPlace_url()
+                            );
+                            photoBoothRepository.save(existingPhotoBooth);
+                            logger.info("Updated PhotoBooth: {}", existingPhotoBooth);
+                        } else {
+                            // Save new PhotoBooth
+                            photoBoothRepository.save(photoBooth);
+                            logger.info("Saved PhotoBooth: {}", photoBooth);
+                        }
                     });
 
                     if (!response.getMeta().is_end()) {
