@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 public class PhotoBooth extends BaseEntity {
 
     @Column(name = "latitude", nullable = false)
-    private double latitude;
+    private String latitude;
 
     @Column(name = "longitude", nullable = false)
-    private double longitude;
+    private String longitude;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "brand_name", length = 50, nullable = false)
@@ -40,12 +40,9 @@ public class PhotoBooth extends BaseEntity {
     @Column(name = "place_url", nullable = true, columnDefinition = "TEXT")
     private String placeUrl;
 
-    @Column(name = "distance", nullable = true)
-    private int distance; // 거리 (예: 사용자가 검색 기준으로부터의 거리)
-
     @Builder
-    private PhotoBooth(double latitude, double longitude, BrandType brandName, String placeName,
-                       String address, String roadAddress, String phone, String placeUrl, int distance) {
+    private PhotoBooth(String latitude, String longitude, BrandType brandName, String placeName,
+                       String address, String roadAddress, String phone, String placeUrl) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.brandName = brandName;
@@ -54,6 +51,5 @@ public class PhotoBooth extends BaseEntity {
         this.roadAddress = roadAddress;
         this.phone = phone;
         this.placeUrl = placeUrl;
-        this.distance = distance;
     }
 }
