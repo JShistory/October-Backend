@@ -15,12 +15,6 @@ import lombok.NoArgsConstructor;
 @Entity
 public class PhotoBooth extends BaseEntity {
 
-    @Column(name = "latitude", nullable = false)
-    private String latitude;
-
-    @Column(name = "longitude", nullable = false)
-    private String longitude;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "brand_name", length = 50, nullable = false)
     private BrandType brandName;
@@ -31,38 +25,24 @@ public class PhotoBooth extends BaseEntity {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "road_address", nullable = true)
-    private String roadAddress;
-
     @Column(name = "phone", nullable = true)
     private String phone;
 
-    @Column(name = "place_url", nullable = true, columnDefinition = "TEXT")
-    private String placeUrl;
-
     @Builder
-    private PhotoBooth(String latitude, String longitude, BrandType brandName, String placeName,
-                       String address, String roadAddress, String phone, String placeUrl) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    private PhotoBooth(BrandType brandName, String placeName,
+                       String address, String phone) {
         this.brandName = brandName;
         this.placeName = placeName;
         this.address = address;
-        this.roadAddress = roadAddress;
         this.phone = phone;
-        this.placeUrl = placeUrl;
     }
 
-    public PhotoBooth updateFields(String latitude, String longitude, BrandType brandName, String placeName,
-                                   String address, String roadAddress, String phone, String placeUrl) {
-        this.latitude = latitude != null ? latitude : this.latitude;
-        this.longitude = longitude != null ? longitude : this.longitude;
+    public PhotoBooth updateFields(BrandType brandName, String placeName,
+                                   String address, String phone) {
         this.brandName = brandName != null ? brandName : this.brandName;
         this.placeName = placeName != null ? placeName : this.placeName;
         this.address = address != null ? address : this.address;
-        this.roadAddress = roadAddress != null ? roadAddress : this.roadAddress;
         this.phone = phone != null ? phone : this.phone;
-        this.placeUrl = placeUrl != null ? placeUrl : this.placeUrl;
         return this;
     }
 
