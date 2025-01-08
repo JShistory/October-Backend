@@ -46,9 +46,9 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         // todo: 추후 프론트 배포 주소에 맞게 수정해야됨
         String redirectUrl;
         if ("kakao".equalsIgnoreCase(registrationId)) {
-            redirectUrl = "http://localhost:3000/api/auth/kakao";
+            redirectUrl = "http://localhost:3000/api/auth/callback/kakao";
         } else if ("naver".equalsIgnoreCase(registrationId)) {
-            redirectUrl = "http://localhost:3000/api/auth/naver";
+            redirectUrl = "http://localhost:3000/api/auth/callback/naver";
         } else {
             redirectUrl = "/api/main"; // 기본 리다이렉트 URL
         }
