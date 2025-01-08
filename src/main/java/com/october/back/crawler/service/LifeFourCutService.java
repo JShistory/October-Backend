@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class LifeFourCutService implements CrwalService {
+public class LifeFourCutService implements CrawlService {
     private final PhotoBoothRepository photoBoothRepository;
     private static final String LIFE_FOUR_CUT_BASE_URL = "https://lifefourcuts.com/Store01/?sort=TIME&keyword_type=all&page=";
 

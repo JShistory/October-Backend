@@ -1,5 +1,5 @@
 package com.october.back.crawler.service;
 
-public interface CrwalService {
+public interface CrawlService {
     public void crawl();
 }

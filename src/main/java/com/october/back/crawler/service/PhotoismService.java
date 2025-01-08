@@ -22,7 +22,7 @@ import java.io.IOException;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class PhotoismService implements CrwalService {
+public class PhotoismService implements CrawlService {
     private final PhotoBoothRepository photoBoothRepository;
     private static final String PHOTOISM_BASE_URL = "https://photoism.co.kr/%d/?sort=TIME&keyword_type=all&page=%d";
 

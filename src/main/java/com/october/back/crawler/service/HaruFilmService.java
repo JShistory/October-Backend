@@ -21,7 +21,7 @@ import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
-public class HaruFilmService implements CrwalService {
+public class HaruFilmService implements CrawlService {
     private final PhotoBoothRepository photoBoothRepository;
     private static final String HARU_FILM_BASE_URL = "http://harufilm.com/";
 

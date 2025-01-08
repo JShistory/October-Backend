@@ -21,7 +21,7 @@ import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
-public class DontLookUpService implements CrwalService {
+public class DontLookUpService implements CrawlService {
     private final PhotoBoothRepository photoBoothRepository;
     private static final String HARU_FILM_BASE_URL = "https://dontlxxkup.kr/store/?sort=TIME&keyword_type=all&page=";
 
