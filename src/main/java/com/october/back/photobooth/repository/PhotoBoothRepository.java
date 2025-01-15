@@ -9,4 +9,5 @@ public interface PhotoBoothRepository extends JpaRepository<PhotoBooth, Long> {
     PhotoBooth findByPlaceNameAndAddress(String placeName, String address);
     boolean existsByPlaceName(String placeName);
     List<PhotoBooth> findByBrandName(BrandType brandName);
+    PhotoBooth findByPlaceName(String placeName);
 }
