@@ -4,7 +4,6 @@ import com.october.back.global.common.ErrorCode;
 import com.october.back.global.exception.CrawlException;
 import com.october.back.photobooth.entity.BrandType;
 import com.october.back.photobooth.entity.PhotoBooth;
-import com.october.back.photobooth.repository.PhotoBoothRepository;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -23,7 +22,6 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 @Service
 public class AsyncCrawlService {
-    private final PhotoBoothRepository photoBoothRepository;
     private static final String LIFE_FOUR_CUT_BASE_URL = "https://lifefourcuts.com/Store01/?sort=TIME&keyword_type=all&page=";
     private static final String DONT_LOOKUP_BASE_URL = "https://dontlxxkup.kr/store/?sort=TIME&keyword_type=all&page=";
     private static final String HARU_FILM_BASE_URL = "http://harufilm.com/";
