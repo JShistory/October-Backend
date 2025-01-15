@@ -25,25 +25,27 @@ public class PhotoBooth extends BaseEntity {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "phone", nullable = true)
-    private String phone;
+    @Column(name = "closed", nullable = false)
+    private Boolean closed = false; // 기본값: 활성 상태
 
+    //todo : 리뷰, 좋아요 등등 추가해야됨
     @Builder
     private PhotoBooth(BrandType brandName, String placeName,
-                       String address, String phone) {
+                       String address) {
         this.brandName = brandName;
         this.placeName = placeName;
         this.address = address;
-        this.phone = phone;
     }
 
     public PhotoBooth updateFields(BrandType brandName, String placeName,
-                                   String address, String phone) {
+                                   String address) {
         this.brandName = brandName != null ? brandName : this.brandName;
         this.placeName = placeName != null ? placeName : this.placeName;
         this.address = address != null ? address : this.address;
-        this.phone = phone != null ? phone : this.phone;
         return this;
     }
 
+    public void close() {
+        this.closed = true;
+    }
 }
