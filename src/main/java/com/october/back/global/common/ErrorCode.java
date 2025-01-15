@@ -20,9 +20,12 @@ public enum ErrorCode {
 	NOT_FOUND_USER(404, "M001", "사용자를 찾을 수 없습니다."),
 
 	// media
-	NOT_FOUND_MEDIA(400, "M001", "미디어 URL을 찾을 수 없습니다.");
+	NOT_FOUND_MEDIA(400, "M001", "미디어 URL을 찾을 수 없습니다."),
 
 	// review
+
+	// crawl
+	CRAWL_CONNECTION_FAILED(500, "CR001", "크롤링 중 연결에 실패했습니다.");
 
 	private int status;
 	private final String code;
